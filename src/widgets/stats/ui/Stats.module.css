@@ -1,0 +1,82 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 720px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+}
+.metricLabel {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.metricValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.wide { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 12px; }
+
+.title { margin: 0; font-size: 14px; color: var(--color-text); font-weight: 600; }
+
+.bars { display: flex; flex-direction: column; gap: 10px; }
+.barRow {
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+@media (max-width: 480px) {
+  .barRow { grid-template-columns: 70px 1fr 70px; font-size: 12px; }
+}
+.barLabel { color: var(--color-text); font-weight: 500; }
+.barTrack {
+  height: 8px;
+  background: var(--color-surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+.barValue { color: var(--color-text-muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+.topList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.topItem {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border-soft);
+  font-size: 14px;
+}
+.topItem:last-child { border-bottom: none; }
+.topRank { color: var(--color-primary-text); font-weight: 700; }
+.topName { color: var(--color-text); }
+.topMeta { color: var(--color-text-muted); font-size: 13px; }

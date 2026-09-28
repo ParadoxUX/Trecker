@@ -1,0 +1,20 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+.intro { display: flex; flex-direction: column; gap: 6px; }
+.title { margin: 0; font-size: 26px; color: var(--color-text); }
+.subtitle { margin: 0; color: var(--color-text-muted); font-size: 14px; }
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.notFound h2 { margin: 0; font-size: 18px; }
+.notFound p { margin: 0; color: var(--color-text-muted); }

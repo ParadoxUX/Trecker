@@ -1,0 +1,11 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border-soft);
+  font-size: 14px;
+}
+.row:last-child { border-bottom: none; }
+.name { color: var(--color-text); font-weight: 500; }
+.meta { color: var(--color-text-muted); font-variant-numeric: tabular-nums; }

@@ -1,0 +1,124 @@
+.form { display: flex; flex-direction: column; gap: 16px; }
+
+/* --- Верхняя строка формы --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* --- Заголовок секции упражнений --- */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.sectionTitle { font-size: 14px; font-weight: 600; color: var(--color-text); }
+
+.empty {
+  color: var(--color-text-soft);
+  font-size: 13px;
+  padding: 12px 0;
+  text-align: center;
+}
+
+/* --- Строка упражнения --- */
+.exerciseList { display: flex; flex-direction: column; gap: 10px; }
+
+.exerciseRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 88px) minmax(0, 88px) minmax(0, 100px) 40px;
+  gap: 8px;
+  align-items: end;
+  padding: 10px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 10px;
+}
+
+/* Поля не вылезают за пределы ячейки grid */
+.field { min-width: 0; }
+.field :global(input) { width: 100%; }
+
+/* Кнопка удаления выравнивается по нижнему краю инпутов */
+.removeField {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+.removeField button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Планшет / мобильный: название отдельной строкой сверху */
+@media (max-width: 720px) {
+  .exerciseRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 40px;
+    align-items: end;
+  }
+  /* Первое поле (название) — на всю ширину */
+  .exerciseRow > .field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Очень узкие экраны: 2 колонки */
+@media (max-width: 420px) {
+  .exerciseRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .exerciseRow > .field:first-child {
+    grid-column: 1 / -1;
+  }
+  .removeField {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+    height: auto;
+  }
+  .removeField button {
+    width: auto;
+    height: auto;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+/* --- Заметки --- */
+.notesLabel { display: flex; flex-direction: column; gap: 6px; }
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  outline: none;
+  background: var(--color-input-bg);
+  color: var(--color-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.textarea::placeholder { color: var(--color-text-soft); }
+.textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.errorText { color: var(--color-danger); font-size: 12px; margin-bottom: 8px; }
+
+/* --- Кнопки внизу формы --- */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}

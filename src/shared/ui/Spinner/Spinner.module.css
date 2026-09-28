@@ -1,0 +1,14 @@
+.wrapper { display: inline-flex; align-items: center; gap: 10px; color: #6b7280; font-size: 14px; }
+
+.spinner {
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  border-top-color: #4f46e5;
+  animation: spin 0.7s linear infinite;
+}
+.sm { width: 14px; height: 14px; border-width: 2px; }
+.md { width: 20px; height: 20px; border-width: 2px; }
+.lg { width: 28px; height: 28px; border-width: 3px; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
